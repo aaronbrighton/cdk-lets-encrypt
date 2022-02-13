@@ -44,7 +44,7 @@ export class LetsEncryptCertificate extends Construct {
     this.secret = secretHolderForCertificate;
 
     const letsEncryptProvisionerFunction = new lambda.NodejsFunction(this, 'Provisioner', {
-      entry: path.join(__dirname, 'lets-encrypt-provisioner-lambda/index.ts'),
+      entry: path.join(__dirname, 'lets-encrypt-provisioner-lambda/index.js'),
       handler: 'handler',
       timeout: Duration.minutes(5),
       bundling: {
