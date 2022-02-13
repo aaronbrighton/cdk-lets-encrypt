@@ -7,7 +7,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
   name: 'cdk-lets-encrypt',
   repositoryUrl: 'https://github.com/aaronbrighton/cdk-lets-encrypt.git',
   releaseToNpm: true,
-  publishDryRun: true,
   keywords: [
     'aws-cdk',
   ],
