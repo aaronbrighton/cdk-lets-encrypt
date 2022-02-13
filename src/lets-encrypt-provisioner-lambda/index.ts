@@ -4,6 +4,10 @@ import * as AWS from 'aws-sdk';
 var route53 = new AWS.Route53();
 var secretsmanager = new AWS.SecretsManager();
 
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 export async function handler(event: AWSLambda.CloudFormationCustomResourceEvent) {
   switch (event.RequestType) {
     case 'Create':
@@ -50,6 +54,7 @@ export async function handler(event: AWSLambda.CloudFormationCustomResourceEvent
               }],
             },
           }).promise();
+          await sleep(30000);
 
           console.log(`Would create TXT record "${dnsRecord}" with value "${recordValue}"`);
 
@@ -79,6 +84,7 @@ export async function handler(event: AWSLambda.CloudFormationCustomResourceEvent
               }],
             },
           }).promise();
+          await sleep(30000);
 
           console.log(`Would remove TXT record "${dnsRecord}" with value "${recordValue}"`);
         },
