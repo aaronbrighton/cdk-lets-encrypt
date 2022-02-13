@@ -10,6 +10,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   keywords: [
     'aws-cdk',
   ],
+  majorVersion: 1,
 
   deps: [
     'aws-sdk',
