@@ -1,8 +1,9 @@
 {
   "name": "cdk-lets-encrypt",
+  "description": "Automatically generate a Let's Encrypt certificate for a domain managed in Route53, pushing the resulting certificates and key into Secrets Manager.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aaron/cdk-lets-encrypt.git"
+    "url": "https://github.com/aaronbrighton/cdk-lets-encrypt.git"
   },
   "scripts": {
     "build": "npx projen build",
@@ -32,15 +33,16 @@
   },
   "author": {
     "name": "Aaron Brighton",
-    "email": "aaron@aaronbrighton.ca",
+    "url": "https://aaronbrighton.ca/",
     "organization": false
   },
   "devDependencies": {
+    "@types/cfn-response": "^1.0.5",
     "@types/jest": "^27.4.0",
     "@types/node": "^12",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
-    "aws-cdk-lib": "2.1.0",
+    "aws-cdk-lib": "2.12.0",
     "constructs": "10.0.5",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.6",
@@ -59,10 +61,19 @@
     "typescript": "^4.5.5"
   },
   "peerDependencies": {
-    "aws-cdk-lib": "^2.1.0",
+    "aws-cdk-lib": "^2.12.0",
     "constructs": "^10.0.5"
   },
+  "dependencies": {
+    "acme-client": "^4.2.3",
+    "aws-sdk": "^2.1073.0"
+  },
+  "bundledDependencies": [
+    "acme-client",
+    "aws-sdk"
+  ],
   "keywords": [
+    "aws-cdk",
     "cdk"
   ],
   "main": "lib/index.js",
