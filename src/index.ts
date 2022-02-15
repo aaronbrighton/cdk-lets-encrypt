@@ -47,11 +47,6 @@ export class LetsEncryptCertificate extends Construct {
       entry: path.join(__dirname, 'lets-encrypt-provisioner-lambda/index.js'),
       handler: 'handler',
       timeout: Duration.minutes(5),
-      bundling: {
-        nodeModules: [
-          'acme-client',
-        ],
-      },
     });
     secretHolderForCertificate.grantWrite(letsEncryptProvisionerFunction);
     letsEncryptProvisionerFunction.addToRolePolicy(new iam.PolicyStatement({
